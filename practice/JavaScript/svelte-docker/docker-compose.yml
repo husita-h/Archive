@@ -1,0 +1,13 @@
+version: '3'
+services:
+  node:
+    build: .
+    volumes:
+      - type: bind
+        source: "./"
+        target: "/app"
+    command: sh -c "cd svelte-app && npm install && npm run dev -- --open"
+    ports:
+      - "5173:5173"
+    stdin_open: true 
+    tty: true
